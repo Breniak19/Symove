@@ -1,15 +1,15 @@
-name: Compilar Symove
+name: Compilar y Publicar Symove
 
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
-    # IMPORTANTE: Para Windows Forms DEBE ser windows-latest, no ubuntu
     runs-on: windows-latest
+    # Necesitamos permisos para crear el lanzamiento y subir archivos
+    permissions:
+      contents: write
 
     steps:
     - name: Descargar el código
@@ -23,12 +23,18 @@ jobs:
     - name: Restaurar dependencias
       run: dotnet restore
 
-    - name: Compilar y generar un solo .exe (Publish)
-      # Esto crea la versión final (Release) para Windows 64-bits en un solo archivo
+    - name: Compilar (Publish)
+      # Nota: Si quieres que pese menos, cambia self-contained a false
       run: dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o ./salida_compilada
 
-    - name: Subir el ejecutable a GitHub
-      uses: actions/upload-artifact@v4
+    - name: Crear Tag y Lanzamiento
+      uses: softprops/action-gh-release@v1
       with:
-        name: Symove-Programa
-        path: ./salida_compilada/Symove.exe
+        # Esto usa la fecha y el hash del commit como nombre de versión único
+        tag_name: v1.0.${{ github.run_number }}
+        name: Symove Release v1.0.${{ github.run_number }}
+        draft: false
+        prerelease: false
+        files: ./salida_compilada/Symove.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
