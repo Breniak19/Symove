@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symove", "Symove.csproj", "{74DF872B-893F-4C39-8A1A-3615A254FD60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74DF872B-893F-4C39-8A1A-3615A254FD60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74DF872B-893F-4C39-8A1A-3615A254FD60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74DF872B-893F-4C39-8A1A-3615A254FD60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74DF872B-893F-4C39-8A1A-3615A254FD60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {169C777A-21F9-4DEB-9141-45E890514C70}
+	EndGlobalSection
+EndGlobal
